@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Neutral warm background & foreground */
+    --background: #fbfbfb;
+    --foreground: #1c1917;
+
+    /* Card & Surfaces */
+    --card: #ffffff;
+    --card-foreground: #1c1917;
+
+    /* Popover */
+    --popover: #ffffff;
+    --popover-foreground: #1c1917;
+
+    /* Primary: Desaturated Deep Navy / Slate Blue (Tool-like, Linear/Stripe vibe) */
+    --primary: #1e293b;
+    --primary-foreground: #f8fafc;
+
+    /* Secondary */
+    --secondary: #f1f5f9;
+    --secondary-foreground: #0f172a;
+
+    /* Muted */
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+
+    /* Accent */
+    --accent: #f4f4f5;
+    --accent-foreground: #18181b;
+
+    /* Destructive */
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+
+    /* Operational Status Colors */
+    --status-new: #3b82f6;          /* Blue */
+    --status-scheduled: #6366f1;    /* Indigo */
+    --status-assigned: #8b5cf6;     /* Purple */
+    --status-in-progress: #0284c7;  /* Sky */
+    --status-waiting-parts: #f59e0b;/* Amber */
+    --status-pending-review: #ea580c;/* Orange */
+    --status-completed: #10b981;   /* Emerald */
+    --status-cancelled: #6b7280;   /* Gray */
+
+    /* Borders & Inputs */
+    --border: #e4e4e7;
+    --input: #e4e4e7;
+    --ring: #1e293b;
+
+    /* Tight Radius (6-8px) */
+    --radius: 0.375rem;
+  }
+
+  .dark {
+    --background: #09090b;
+    --foreground: #fafafa;
+
+    --card: #121215;
+    --card-foreground: #fafafa;
+
+    --popover: #121215;
+    --popover-foreground: #fafafa;
+
+    --primary: #f8fafc;
+    --primary-foreground: #0f172a;
+
+    --secondary: #1e293b;
+    --secondary-foreground: #f8fafc;
+
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+
+    --accent: #27272a;
+    --accent-foreground: #fafafa;
+
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fef2f2;
+
+    --border: #27272a;
+    --input: #27272a;
+    --ring: #cbd5e1;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular figures for operational IDs, currency, and timestamps */
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Compact operational table styling */
+.operational-table th {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #71717a;
+  border-bottom: 1px solid var(--border);
+  background-color: #fafafa;
+}
+
+.operational-table td {
+  padding: 0.625rem 0.75rem;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid var(--border);
+  height: 42px;
 }
